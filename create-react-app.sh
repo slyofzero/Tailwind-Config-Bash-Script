@@ -17,7 +17,7 @@ yarn create vite $appName --template react-ts;
 echo -e "\nYour React App is Ready.\nOraganizing files in folders and removing ununsed content.\n";
 cd $appName;
 
-npm install;
+yarn install;
 cd public;
 rm logo*;
 cd ..;
@@ -68,7 +68,7 @@ module.exports = {
   },
   plugins: [],
 }
-' > tailwind.config.js;
+' > tailwind.config.cjs;
 
 echo 'module.exports = {
   plugins: {
@@ -78,7 +78,7 @@ echo 'module.exports = {
     autoprefixer: {},
   }
 }
-' > postcss.config.js;
+' > postcss.config.cjs;
 
 echo '@tailwind base;
 @tailwind components;
@@ -93,10 +93,11 @@ echo '@tailwind base;
 jq '.scripts = {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
     "build:css": "yarn postcss ./src/Styles/index.css -o ./src/Styles/tailwind.css --watch",
     "prettier": "yarn prettier --write ./src/**/*.{js,jsx,ts,tsx}"
-  }' package.json > temp.json;
+}' package.json > temp.json;
+jq '.licence = "UNLICENCED"' package.json > temp.json;
 mv temp.json package.json;
 
 yarn postcss ./src/Styles/index.css -o ./src/Styles/tailwind.css;
