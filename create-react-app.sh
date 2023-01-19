@@ -48,7 +48,7 @@ root.render(
     <App />
   </React.StrictMode>
 );
-' > index.tsx;
+' > main.tsx;
 
 echo '/// <reference types="vite/client" />' > vite-env.d.ts
 
@@ -97,7 +97,7 @@ jq '.scripts = {
     "build:css": "yarn postcss ./src/Styles/index.css -o ./src/Styles/tailwind.css --watch",
     "prettier": "yarn prettier --write ./src/**/*.{js,jsx,ts,tsx}"
 }' package.json > temp.json;
-jq '.licence = "UNLICENCED"' package.json > temp.json;
+# jq '.licence = "UNLICENCED"' package.json > temp.json;
 mv temp.json package.json;
 
 yarn postcss ./src/Styles/index.css -o ./src/Styles/tailwind.css;
