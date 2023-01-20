@@ -19,7 +19,6 @@ cd $appName;
 
 yarn install;
 cd public;
-rm logo*;
 cd ..;
 rm -r src;
 mkdir src;
