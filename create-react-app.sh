@@ -57,7 +57,7 @@ cd ..;
 printf -- '-%.0s' {1..75}; echo "";
 echo -e "Configuring TailwindCSS.\n"
 yarn add tailwindcss postcss postcss-import postcss-cli autoprefixer;
-yarn add -D prettier-plugin-tailwindcss;
+yarn add -D prettier prettier-plugin-tailwindcss;
 
 echo '/** @type {import("tailwindcss").Config} */
 module.exports = {
